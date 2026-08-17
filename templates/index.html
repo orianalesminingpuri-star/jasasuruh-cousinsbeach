@@ -1,0 +1,282 @@
+```html
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Jasasuruh.Cousinsbeach</title>
+
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <!-- NAVBAR -->
+    <header class="navbar">
+      <div class="logo">
+        <span>JS</span>
+
+        <div>
+          <strong>Jasasuruh</strong>
+          <small>.Cousinsbeach</small>
+        </div>
+      </div>
+
+      <a href="#driver" class="nav-button"> Cari Driver </a>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-content">
+        <div class="badge">⚡ JASA SURUH • COUSINSBEACH</div>
+
+        <h1>
+          Butuh Disuruh?
+          <span>Kami Siap.</span>
+        </h1>
+
+        <p>
+          Jasa suruh terpercaya untuk membantu kebutuhanmu. Tinggal bilang apa
+          yang kamu butuhkan, driver kami siap membantu.
+        </p>
+
+        <div class="hero-buttons">
+          <a
+            class="primary-btn"
+            href="https://wa.me/628891006445"
+            target="_blank"
+          >
+            💬 Hubungi Admin
+          </a>
+
+          <a class="secondary-btn" href="#driver"> Lihat Driver ↓ </a>
+        </div>
+
+        <div class="socials">
+          <a
+            href="https://www.instagram.com/usedbyowin?igsh=MXZ0OXgzeXlsazY1NQ=="
+            target="_blank"
+          >
+            📸 Instagram
+          </a>
+
+          <a
+            href="https://www.tiktok.com/@sikmapipel5?_r=1&_t=ZS-98wn8fkLGXh"
+            target="_blank"
+          >
+            🎵 TikTok
+          </a>
+
+          <a href="https://wa.me/628891006445" target="_blank"> 💬 WhatsApp </a>
+        </div>
+      </div>
+
+      <!-- BEACH CARD -->
+      <div class="hero-card">
+        <div class="sun"></div>
+
+        <div class="wave wave1"></div>
+        <div class="wave wave2"></div>
+
+        <div class="beach-card">
+          <div class="beach-icon">🏖️</div>
+
+          <h3>Cousins Beach</h3>
+
+          <p>
+            Your request.<br />
+            Our mission.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services">
+      <div class="section-heading">
+        <span>LAYANAN KAMI</span>
+
+        <h2>Apa yang bisa kami bantu?</h2>
+
+        <p>Tinggal suruh, kami yang kerjakan.</p>
+      </div>
+
+      <div class="service-grid">
+        <div class="service-card">
+          <div class="service-icon">🛵</div>
+
+          <h3>Jasa Antar</h3>
+
+          <p>
+            Butuh antar barang atau mengambil sesuatu? Driver kami siap
+            membantu.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">🛒</div>
+
+          <h3>Belanja</h3>
+
+          <p>Mager keluar? Suruh driver untuk membelikan kebutuhanmu.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">📦</div>
+
+          <h3>Ambil Barang</h3>
+
+          <p>
+            Barang tertinggal atau perlu diambil? Serahkan kepada driver kami.
+          </p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">✨</div>
+
+          <h3>Request Lainnya</h3>
+
+          <p>Punya kebutuhan lain? Hubungi admin untuk konsultasi.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- DRIVERS -->
+    <section class="drivers" id="driver">
+      <div class="section-heading">
+        <span>OUR DRIVERS</span>
+
+        <h2>Pilih Driver Kamu</h2>
+
+        <p>Cek status dan area driver sebelum menghubungi.</p>
+      </div>
+
+      <div class="driver-grid">
+        {% for driver in drivers %}
+
+        <article class="driver-card">
+          <div class="driver-image">
+            <img
+              src="{{ driver.image }}"
+              alt="Foto {{ driver.name }}"
+              style="
+                display: block;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+              "
+            />
+
+            <div class="status {{ driver.status }}">
+              <span></span>
+              {{ driver.status|capitalize }}
+            </div>
+          </div>
+
+          <div class="driver-info">
+            <div class="driver-title">
+              <div>
+                <h3>{{ driver.name }}</h3>
+                <p>{{ driver.character }}</p>
+              </div>
+
+              <div class="number">#{{ loop.index }}</div>
+            </div>
+
+            <div class="driver-details">
+              <div>
+                <span>📍</span>
+
+                <div>
+                  <small>Area</small>
+                  <strong>{{ driver.area }}</strong>
+                </div>
+              </div>
+
+              <div>
+                <span>🎬</span>
+
+                <div>
+                  <small>Referensi</small>
+                  <strong>{{ driver.actor }}</strong>
+                </div>
+              </div>
+            </div>
+
+            <a
+              class="wa-driver"
+              href="https://wa.me/{{ driver.phone }}"
+              target="_blank"
+            >
+              💬 Chat {{ driver.name }} via WhatsApp
+            </a>
+          </div>
+        </article>
+
+        {% endfor %}
+      </div>
+    </section>
+
+    <!-- ADMIN -->
+    <section class="admin">
+      <div class="admin-box">
+        <div class="admin-icon">👋</div>
+
+        <div>
+          <span> ADMIN </span>
+
+          <h2>Mau pesan jasa suruh?</h2>
+
+          <p>Hubungi admin untuk request, harga, dan informasi lainnya.</p>
+        </div>
+
+        <a
+          href="https://wa.me/628891006445"
+          target="_blank"
+          class="primary-btn"
+        >
+          WhatsApp Admin
+        </a>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-logo">Jasasuruh<span> .Cousinsbeach </span></div>
+
+      <p>Your request. Our mission.</p>
+
+      <div class="footer-social">
+        <a
+          href="https://www.instagram.com/usedbyowin?igsh=MXZ0OXgzeXlsazY1NQ=="
+          target="_blank"
+        >
+          Instagram
+        </a>
+
+        <a
+          href="https://www.tiktok.com/@sikmapipel5?_r=1&_t=ZS-98wn8fkLGXh"
+          target="_blank"
+        >
+          TikTok
+        </a>
+
+        <a href="https://wa.me/628891006445" target="_blank"> WhatsApp </a>
+      </div>
+
+      <small> © 2026 Jasasuruh.Cousinsbeach </small>
+    </footer>
+  </body>
+</html>
+```
