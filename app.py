@@ -1,7 +1,7 @@
 from flask import Flask, render_template
+
 app = Flask(_name_)
 
-# ===== GANTI DATA DI SINI =====
 SITE_NAME = "Jasasuruh.Cousinsbeach"
 TAGLINE = "Butuh bantuan? Kami yang jalan."
 DESCRIPTION = "Jasa suruh, titip, ambil, dan antar untuk memudahkan aktivitasmu."
@@ -26,9 +26,16 @@ DRIVERS = [
 
 @app.route("/")
 def home():
-    return render_template("index.html", site_name=SITE_NAME, tagline=TAGLINE,
-        description=DESCRIPTION, whatsapp=WHATSAPP, instagram=INSTAGRAM, tiktok=TIKTOK,
-        area=AREA, opening_hours=OPENING_HOURS, services=SERVICES, drivers=DRIVERS)
-
-if _name_ == "_main_":
-    app.run(debug=True, host="0.0.0.0", port=5000)
+    return render_template(
+        "index.html",
+        site_name=SITE_NAME,
+        tagline=TAGLINE,
+        description=DESCRIPTION,
+        whatsapp=WHATSAPP,
+        instagram=INSTAGRAM,
+        tiktok=TIKTOK,
+        area=AREA,
+        opening_hours=OPENING_HOURS,
+        services=SERVICES,
+        drivers=DRIVERS
+    )
