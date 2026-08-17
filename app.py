@@ -3,11 +3,11 @@ app = Flask(__name__)
 
 # ===== GANTI DATA DI SINI =====
 SITE_NAME = "Jasasuruh.Cousinsbeach"
-TAGLINE = "Butuh disuruh? Kami yang jalan."
+TAGLINE = "Butuh bantuan? Kami yang jalan."
 DESCRIPTION = "Jasa suruh, titip, ambil, dan antar untuk memudahkan aktivitasmu."
-WHATSAPP = "6281234567890"
-INSTAGRAM = "https://instagram.com/usernamekamu"
-TIKTOK = "https://www.tiktok.com/@usernamekamu"
+WHATSAPP = "628891006445"
+INSTAGRAM = "https://www.instagram.com/jasasuruh.cousinsbeach?igsh=NjJzZTZ1bmwzcHk0"
+TIKTOK = "https://www.tiktok.com/@sikmapipel5?_r=1&_t=ZS-98wn8fkLGXh"
 AREA = "Cirebon & sekitarnya"
 OPENING_HOURS = "Setiap hari • 08.00–22.00"
 
@@ -19,9 +19,9 @@ SERVICES = [
 ]
 
 DRIVERS = [
-    {"name":"Raka","photo":"driver1.jpg","area":"Cirebon & sekitarnya","status":"Tersedia","wa":"6281234567890"},
-    {"name":"Dimas","photo":"driver2.jpg","area":"Cirebon Kota","status":"Tersedia","wa":"6281234567891"},
-    {"name":"Fajar","photo":"driver3.jpg","area":"Kabupaten Cirebon","status":"Offline","wa":"6281234567892"},
+    {"name":"Conrad","photo":"driver1.jpg","area":"Cirebon & sekitarnya","status":"Tersedia","wa":"6289530522457"},
+    {"name":"Jeremiah","photo":"driver2.jpg","area":"Cirebon Kota","status":"Tersedia","wa":"6285211003707"},
+    {"name":"Cam","photo":"driver3.jpg","area":"Kabupaten Cirebon","status":"Offline","wa":"6282249152197"},
 ]
 
 @app.route("/")
